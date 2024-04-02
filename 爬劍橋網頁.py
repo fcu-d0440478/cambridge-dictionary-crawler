@@ -9,7 +9,7 @@ chrome_options = Options()
 # chrome_options.add_argument("--headless")
 chrome_options.add_argument("--window-size=1920x1080")
 # 抓取selenium webdriver位置
-driver = webdriver.Chrome()
+driver = webdriver.Edge()
 driver.implicitly_wait(2)  # 隱性等待，使用一次整個程式過程皆有效
 # wait = WebDriverWait(driver, 10)  #顯性等待用，不是所有清況都能用隱性等待解決
 
