@@ -3,8 +3,11 @@ from selenium.webdriver.chrome.options import Options
 
 # 設定 Edge 瀏覽器的選項
 edge_options = Options()
-edge_options.add_argument("--headless")  # 啟用無頭模式
+# edge_options.add_argument("--headless")  # 啟用無頭模式
 edge_options.add_argument("--window-size=1920x1080")  # 設定視窗大小
+edge_options.add_experimental_option(
+    "excludeSwitches", ["enable-logging"]
+)  # 排除日誌開關
 
 # 初始化 Edge WebDriver
 driver = webdriver.Edge(options=edge_options)
@@ -25,3 +28,6 @@ get_definition(driver, word="banana")
 get_definition(driver, word="cat")
 get_definition(driver, word="dog")
 get_definition(driver, word="elephant")
+
+# Close the WebDriver
+driver.quit()
