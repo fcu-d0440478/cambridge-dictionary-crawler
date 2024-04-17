@@ -19,7 +19,7 @@ def get_definition(driver, word):
     xpath = "/html/body/div[2]/div/div[1]/div[2]/article/div[2]/div[4]/div/div/div/div[3]/div/div[2]/div[1]/div[3]/span"
     elements = driver.find_elements("xpath", xpath)
     for i in elements:
-        print(i.text)
+        print(f"{word}: {i.text}")
 
 
 get_definition(driver, word="architect")
