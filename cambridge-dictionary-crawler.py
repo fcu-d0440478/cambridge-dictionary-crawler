@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.edge.options import Options
 
 # 設定 Edge 瀏覽器的選項
 edge_options = Options()
@@ -16,7 +16,7 @@ driver.implicitly_wait(2)  # 隱性等待
 
 def get_definition(driver, word):
     driver.get(f"https://dictionary.cambridge.org/zht/詞典/英語-漢語-繁體/{word}")
-    xpath = "/html/body/div[2]/div/div[1]/div[2]/article/div[2]/div[4]/div/div/div/div[3]/div/div[2]/div[1]/div[3]/span"
+    xpath = "//span[@class='dtrans'] | //span[@class='trans dtrans dtrans-se break-cj'] | //span[@class='trans dtrans dtrans-se  break-cj']"
     elements = driver.find_elements("xpath", xpath)
     for i in elements:
         print(f"{word}: {i.text}")
